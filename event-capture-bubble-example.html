@@ -1,0 +1,35 @@
+<html>
+
+<head>
+  <title>Event example: captuer > element > Bubble</title>
+  <script type="text/javascript" src="lib/jquery-1.11.3.min.js"></script>
+</head>
+
+<body>
+  <div id='father'>
+    <div id='son'>
+      <img id="flower" alt="" src="images/flower.jpeg" width="300px" height="200px" />
+    </div>
+  </div>
+  <div id="show">
+  </div>
+  <script type="text/javascript">
+  $(function() {
+    $('*').each(function() {
+      var current = this;
+      this.addEventListener('click', function(event) {
+        say('capture:' + current.tagName + ' id:' + current.id + ' targetId:' + event.target.id);
+      }, true);
+      this.addEventListener('click', function(event) {
+        say('bubble:' + current.tagName + ' id:' + current.id + ' targetId:' + event.target.id);
+      }, false);
+    })
+  });
+
+  function say(text) {
+    $('#show').append('<div>' + text + '</div>');
+  }
+  </script>
+</body>
+
+</html>

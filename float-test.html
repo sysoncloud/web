@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<!--
+围住浮动元素的三种方法 
+方法一：为父元素添加overflow:hidden (here it is section)
+方法二：同时浮动父元素 float: left; width:100%;
+方法三：添加非浮动的清除元素
+-->
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>float test</title>
+    <style>
+        section {border:1px solid blue; margin:0 0 10px 0; } 
+        img {float:left;}
+        p {margin 0;} 
+        footer {border:1px solid red;}
+        .clearfix:after { 
+            content:"."; 
+            display:block; 
+            height:0; 
+            visibility:hidden; 
+            clear:both; 
+        } 
+    </style>
+</head>
+<body>
+    <h1>float test</h1>
+
+    <section class="clearfix"> 
+    <img src="images/header.jpeg" width=100 height=150> 
+    <p>It's fun to float.</p>
+    </section>
+
+    <footer> 
+    Here is the footer element that runs across the bottom of the page.
+    </footer>
+    <p>last</p>
+</body>
+</html>

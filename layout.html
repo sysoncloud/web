@@ -1,0 +1,96 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Layout Example</title>
+    <style>
+        #wrapper {
+            width: 960px;
+            margin: 0 auto;
+        }
+        header, footer {
+            background-color: #aaa;
+        }
+        article {
+            width:320px;
+            float: left;
+            margin-bottom: 18px;
+        }
+        .inner {
+            padding: 20px;
+            background-color: #ccc;
+            border: 1px black double;
+        }
+        footer {
+            clear: both;
+        }
+    </style>
+    <script src="lib/jquery-1.11.3.min.js"></script>
+</head>
+<body>
+    <h1 style="position:fixed;top:1px;right:10px">Layout Example</h1>
+    <div id="wrapper">
+        <header>
+            <h1>Full-width content</h1>
+        </header>
+        <nav>
+            <p>Navigation menus go here</p>
+        </nav>
+        <section id="branding">
+            <img src="images/header.jpeg" alt="Grand Canyon" width="960px" height=120/>
+        </section>
+        <section id="feature_ara">
+            <article>
+                <div class="inner">
+                    <p>Lorem Ipsum text Lorem Ipsum text Lorem Ipsum text Lorem Ipsum text Lorem Ipsum text Lorem Ipsum text Lorem Ipsum text Lorem Ipsum text Lorem Ipsum text </p>                    
+                </div>
+            </article>
+            <article>
+                <div class="inner">
+                    <p style="background-color:red">Second Ipsum text</p>                    
+                </div>
+            </article>
+            <article>
+                <div class="inner">
+                    <p>Third Ipsum text</p>                    
+                </div>
+            </article>
+        </section>
+        <footer>
+            <p>A CSS template from ... with CSS, <em>Third Edition</em> by Charles</p>
+        </footer>
+    </div>
+
+    <script>
+        $(function() {
+            var h = 0;
+            $(".inner").parent().children().each(function(i, e) { 
+                console.log(i , e.offsetHeight, e.clientHeight); 
+                //console.dir(e);
+                console.log(i, $(e).height());
+                if($(e).height() > h)
+                    h = $(e).height();
+
+            });
+            console.log('h:' +h);
+            $(".inner").parent().children().each(function(i, e) {  $(e).css('height', h + 'px')});
+
+            $("div.inner:gt(0)").css("border-left", "none");
+            $("section").click(function(e) { 
+                console.log('section click') ;
+                
+            });
+            $("article").click(function(e) { console.log('article click') ;  
+                if($(e.target).is('p')) {
+                    console.log("p came");
+                    $(e.eventTarget).stopImmediatePropagation();
+                    console.log('stopImmediatePropagation');
+                }
+            });
+            $(".inner").click(function() { console.log('inner click') ;});
+            $(".inner p").click(function() { console.log('p click') ;});
+        }
+        );
+    </script>
+</body>
+</html>

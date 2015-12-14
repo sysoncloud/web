@@ -1,0 +1,97 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Layout Example</title>
+    <style>
+    * {margin:0; padding:0;}
+    #wrapper {
+            width: 960px;
+            border:1px solid;
+            margin: 0 auto;
+            background-color: #ddd;
+        }
+        nav {        
+            width: 150px;
+           
+            float:left;
+            border:1px solid #000;
+            background-color: #dcd970;
+            padding-top:20px;
+            padding-bottom: 20px;
+        }
+        nav li {
+            list-style-type: none;
+        }
+        article {
+            width: 504px;
+            background: #ffed53;
+            float: left;
+            border: 1px dotted #000;
+        }
+        article {
+            word-wrap: break-word;
+        }
+        article .inner { 
+            margin:10px; 
+            border:2px solid red; 
+            padding:20px; 
+        } 
+
+
+        aside {
+            width: 300px;
+            float: left;
+            background-color: #3F7CFF   
+        }
+
+        header, footer {
+            background-color: #aaa;
+        }
+        
+        footer {
+            clear: both;
+        }
+    </style>
+    <script src="lib/jquery-1.11.3.min.js"></script>
+</head>
+<body>
+    <div id="wrapper">
+        <header>
+            <h1>Header</h1>
+        </header>
+
+        <nav>
+            <h3>nav</h3>
+            <ul>
+                <li>Link 1</li>
+                <li>Link 2</li>
+                <li>Link 3</li>
+            </ul>
+        </nav>
+
+        <article>
+        <h3>article</h3>
+        <div class="inner"> 
+            inner
+            <p>
+            Jquery是个非常流行的JS前端框架，在很多网站都能看到它的身影。很多网站都喜欢采用一些Jquery CDN加速服务，这样网站加载jquery会更快。之前火端网络的一些网站都是使用Google的jquery CDN，如：http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js ，
+            但是由于最近Google打不开，这些CDN地址也无法访问，而JS往往放在网页的head里，JS无法访问导致网站打开非常慢，只能是全部替换掉CDN链接了
+            </p>
+        </div> 
+            
+        </article>
+        <aside>
+            <h3>aside</h3>
+            <p>
+                专注于网站设计多年，承接企业建站、网站程序开发、仿站等网站相关服务，价格公道。
+            </p>   
+        </aside>
+
+        <footer>
+            <h3>footer</h3>
+        </footer>
+    </div>
+
+</body>
+</html>
